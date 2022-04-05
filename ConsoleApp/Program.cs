@@ -14,9 +14,9 @@ namespace ConsoleApp
             do
             {
                 Console.Clear();
-                Console.WriteLine("1. Create");
-                Console.WriteLine("2. Search account");
-                Console.WriteLine("3. Show all");
+                Console.WriteLine("1. Create new account");
+                Console.WriteLine("2. Search an existing account");
+                Console.WriteLine("3. Show all accounts");
 
                 string option = Console.ReadLine();
                 string title, accountType, code;
@@ -25,7 +25,7 @@ namespace ConsoleApp
                 switch (option)
                 {
                     case "1":
-                        #region Create New
+                        #region Create New Account
                         Console.Clear();
                         // input all data
                         Console.WriteLine("Enter the account title");
@@ -56,11 +56,12 @@ namespace ConsoleApp
                             Console.WriteLine("Account created");
                             Console.WriteLine(bankAccount);
                         }
-
+                        Console.WriteLine("Press any key for main menu");
                         Console.ReadKey();
                         #endregion
                         break;
                     case "2":
+                        #region Search an existing account
                         Console.Clear();
                         Console.WriteLine("Enter the account code");
                         code = Console.ReadLine().Trim();
@@ -74,7 +75,9 @@ namespace ConsoleApp
                                 break;
                             }
                         }
+                        Console.WriteLine("Press any key for main menu");
                         Console.ReadKey();
+                        #endregion
                         break;
                     case "3":
                         Console.Clear();
