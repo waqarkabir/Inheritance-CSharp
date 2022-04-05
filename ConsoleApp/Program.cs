@@ -67,14 +67,7 @@ namespace ConsoleApp
                         code = Console.ReadLine().Trim();
 
                         Console.WriteLine($"Total accounts: {BankAccount.Total}");
-                        for (int i = 0; i < index; i++)
-                        {
-                            if (string.Compare(bankAccounts[i].Code, code) == 0)
-                            {
-                                Console.WriteLine(bankAccounts[i]);
-                                break;
-                            }
-                        }
+                        BankAccountIteration(bankAccounts, index, code);
                         Console.WriteLine("Press any key for main menu");
                         Console.ReadKey();
                         #endregion
@@ -82,10 +75,11 @@ namespace ConsoleApp
                     case "3":
                         Console.Clear();
                         Console.WriteLine($"Total accounts: {BankAccount.Total}");
-                        for (int i = 0; i < index; i++)
+                        foreach (var item in bankAccounts)
                         {
-                            Console.WriteLine(bankAccounts[i]);
+                            Console.WriteLine(item);
                         }
+                        Console.WriteLine("Press any key for main menu");
                         Console.ReadKey();
                         break;
                     case "4":
@@ -98,6 +92,18 @@ namespace ConsoleApp
                 }
 
             } while (choice);
+        }
+
+        private static void BankAccountIteration(BankAccount[] bankAccounts, int index, string code)
+        {
+            for (int i = 0; i < index; i++)
+            {
+                if (string.Compare(bankAccounts[i].Code, code) == 0)
+                {
+                    Console.WriteLine(bankAccounts[i]);
+                    break;
+                }
+            }
         }
     }
 }
